@@ -7,46 +7,55 @@ Eina d'aprenentatge d'Unity. Ideal per a artistes i nous usuaris d'Unity. Més i
 Projecte de joc basat en l'Asteroids. Eina pensada per introduir les animacion en un entorn de joc Unity.
 
 Joc Asteroids 2D amb Sistema de Reskin Modular
+
 L'objectiu d'aquest projecte és crear un joc complet estil Asteroids 2D a Unity (Unity 6 / URP) dissenyat expressament per facilitar el reskin (canvi immediat de sprites, música, efectes de so, animacions d'explosió i paleta de colors).
 
 Tot el disseny visual i sonor estarà desacoblat de la lògica del joc mitjançant ScriptableObjects (GameSkinData), permetent canviar de tema amb un sol clic o fins i tot en temps real durant la partida.
 
 1. Arquitectura del Sistema de Reskin
-Per crear un tema nou, només cal fer clic dret a Unity: Create -> Asteroids -> Game Skin, omplir els camps amb els nous assets (sprites, àudios, prefabs d'explosió) i afegir-lo a la llista de temes.
+   Per crear un tema nou, només cal fer clic dret a Unity: Create -> Asteroids -> Game Skin, omplir els camps amb els nous assets (sprites, àudios, prefabs d'explosió) i afegir-lo a la llista de temes.
 
-Inclourem 2 temes complets de mostra funcionals:
-Retro Neon / Vector: Estil arcade clàssic, colors neó, asteroides poligonals i sons 8-bit.
-Deep Space / Sci-Fi: Nau daurada, làsers de plasma, asteroides rocosos i explosions contundents.
+    Inclourem 2 temes complets de mostra funcionals:
+        Retro Neon / Vector: Estil arcade clàssic, colors neó, asteroides poligonals i sons 8-bit.
+        Deep Space / Sci-Fi: Nau daurada, làsers de plasma, asteroides rocosos i explosions contundents.
+
 2. Components del Joc
 A. Sistema de Skins & Assets
-GameSkinData.cs: ScriptableObject centralitzat que conté totes les referències visuals i d'àudio.
-SkinManager.cs: Administra el tema actiu, permet canviar de tema (amb tecla T o menú d'opcions) i notifica tots els objectes en escena.
-SkinApplier components (ShipSkinApplier, AsteroidSkinApplier, BackgroundSkinApplier): Apliquen automàticament els sprites, colors i efectes del tema actual.
-Creador d'assets procedurals (per generar automàticament els sprites i sons inicials sense dependències externes).
+    GameSkinData.cs: ScriptableObject centralitzat que conté totes les referències visuals i d'àudio.
+    SkinManager.cs: Administra el tema actiu, permet canviar de tema (amb tecla T o menú d'opcions) i notifica tots els objectes en escena.
+    SkinApplier components (ShipSkinApplier, AsteroidSkinApplier, BackgroundSkinApplier): Apliquen automàticament els sprites, colors i efectes del tema actual.
+    Creador d'assets procedurals (per generar automàticament els sprites i sons inicials sense dependències externes).
+
 B. Jugador & Controls
 PlayerController.cs:
-Moviment físic realista 2D (Rigidbody2D) amb inèrcia, rotació i acceleració (propulsió).
-Efecte visual de propulsió (propulsor actiu en prémer endavant).
-Suport d'entrada compatible amb el nou Input System de Unity i tecles clàssiques (W/A/D, Fletxes, Espai).
-Vides, reaparició amb parpelleig d'invulnerabilitat temporal (3 segons).
+    Moviment físic realista 2D (Rigidbody2D) amb inèrcia, rotació i acceleració (propulsió).
+    Efecte visual de propulsió (propulsor actiu en prémer endavant).
+    Suport d'entrada compatible amb el nou Input System de Unity i tecles clàssiques (W/A/D, Fletxes, Espai).
+    Vides, reaparició amb parpelleig d'invulnerabilitat temporal (3 segons).
+    
 PlayerShooting.cs:
-Dispar de projectils des de la punta de la nau amb cadència de foc configurable.
-Generació del projectil amb la velocitat de la nau + impuls cap endavant.
+    Dispar de projectils des de la punta de la nau amb cadència de foc configurable.
+    Generació del projectil amb la velocitat de la nau + impuls cap endavant.
+    
 Projectile.cs:
-Projectil 2D amb temps de vida limitat.
-Detecció d'impacte amb asteroides.
+    Projectil 2D amb temps de vida limitat.
+    Detecció d'impacte amb asteroides.
+    
 C. Asteroides & Enemics
+
 Asteroid.cs:
-3 mides: Gran (20 punts), Mitjà (50 punts), Petit (100 punts).
-Fragmentació:
-Destruir un asteroide Gran en crea 2 de Mitjans amb angles divergents.
-Destruir un asteroide Mitjà en crea 2 de Petits.
-Destruir un asteroide Petit l'elimina definitivament.
-Velocitat i rotació aleatòries.
-Instanciació de l'efecte d'explosió corresponent al tema.
+    3 mides: Gran (20 punts), Mitjà (50 punts), Petit (100 punts).
+    Fragmentació:
+        Destruir un asteroide Gran en crea 2 de Mitjans amb angles divergents.
+        Destruir un asteroide Mitjà en crea 2 de Petits.
+        Destruir un asteroide Petit l'elimina definitivament.
+    Velocitat i rotació aleatòries.
+    Instanciació de l'efecte d'explosió corresponent al tema.
+    
 AsteroidSpawner.cs:
-Generador d'asteroides als marges de la pantalla (fora del camp visual) dirigits cap a l'interior.
-Sistema d'onades progressives (cada ronda augmenta la quantitat i velocitat).
+    Generador d'asteroides als marges de la pantalla (fora del camp visual) dirigits cap a l'interior.
+    Sistema d'onades progressives (cada ronda augmenta la quantitat i velocitat).
+    
 D. Sistema de Pantalla Infinita (Screen Wrapping)
 ScreenWrapper.cs:
 Component reutilitzable per a la nau, bales i asteroides.
