@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29ca44489707d3e44801f61251e85291, type: 3}
+  m_Name: Skin_DeepSpace
+  m_EditorClassIdentifier: Assembly-CSharp::Asteroids.SkinSystem.GameSkinData
+  skinName: Deep Space
+  skinDescription: Fighter d'alta tecnologia daurat, plasma d'alta energia i asteroides
+    rocosos densos.
+  themeAccentColor: {r: 1, g: 0.75, b: 0.2, a: 1}
+  shipSprite: {fileID: 21300000, guid: 3389314f9dcd16f4a96e3aad90c6d8b2, type: 3}
+  shipColor: {r: 1, g: 1, b: 1, a: 1}
+  thrusterSprite: {fileID: 21300000, guid: a0ba603772cd0b241b06ac10b7672d19, type: 3}
+  thrusterParticlePrefab: {fileID: 0}
+  shootSfx: {fileID: 8300000, guid: f759ac90feaf9c743a78785724c90114, type: 3}
+  thrustSfx: {fileID: 8300000, guid: ce55e2857fd7a3d48ad3a9abc9e6d620, type: 3}
+  shipExplosionPrefab: {fileID: 5095260295416802084, guid: c0470d25eec851b4c81f488e6f5e0f92, type: 3}
+  shipExplosionSfx: {fileID: 8300000, guid: 4d4e9c7f52f4e1842ab5330868a40f58, type: 3}
+  projectileSprite: {fileID: 21300000, guid: cd0e035a0b5a2804f83995c83ff08a70, type: 3}
+  projectileColor: {r: 0.2, g: 1, b: 0.4, a: 1}
+  projectileScale: {x: 1, y: 1}
+  largeAsteroidSprites:
+  - {fileID: 21300000, guid: 8a4a496778fd61f48a3d6e8d986a6165, type: 3}
+  mediumAsteroidSprites:
+  - {fileID: 21300000, guid: 715b19fcb0e8cef4a800b4396b5fd30d, type: 3}
+  smallAsteroidSprites:
+  - {fileID: 21300000, guid: ac48c6fccd106664f98d4e3c3f560456, type: 3}
+  asteroidTint: {r: 1, g: 1, b: 1, a: 1}
+  asteroidExplosionPrefab: {fileID: 5095260295416802084, guid: c0470d25eec851b4c81f488e6f5e0f92, type: 3}
+  asteroidExplosionSfx: {fileID: 8300000, guid: 2838d018ada9cf8498ec65a2bfd7b202, type: 3}
+  asteroidHitSfx: {fileID: 0}
+  backgroundMusic: {fileID: 8300000, guid: b8ba9258ad32d15438255a3c329b6204, type: 3}
+  gameOverSfx: {fileID: 8300000, guid: 750621fa7d222ae479221a8893e81ee1, type: 3}
+  backgroundColor: {r: 0.04, g: 0.04, b: 0.04, a: 1}
+  backgroundSprite: {fileID: 0}
+  lifeIconSprite: {fileID: 21300000, guid: 5134e3fed70f32c45aff3801220d7128, type: 3}
+  uiTextColor: {r: 1, g: 0.95, b: 0.8, a: 1}
